@@ -1,21 +1,56 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101820">
-  <meta name="description" content="Explora el catálogo de servicios informáticos de Alejandro Morales.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Explora el catálogo de servicios informáticos de Alejandro Morales: sistemas, PC, redes, datos, móviles y servidores.">
   <title>Servicios | Alejandro Morales</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/site.css"><link rel="stylesheet" href="assets/css/fixes.css">
+  <link rel="canonical" href="https://alek0byte.github.io/alejandro-morales-services/servicios.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alejandro Morales · Servicios informáticos">
+  <meta property="og:title" content="Servicios | Alejandro Morales">
+  <meta property="og:description" content="Catálogo completo de servicios informáticos con precios orientativos y filtros por categoría.">
+  <meta property="og:url" content="https://alek0byte.github.io/alejandro-morales-services/servicios.html">
+  <meta property="og:image" content="https://alek0byte.github.io/alejandro-morales-services/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alejandro Morales · Servicios informáticos">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Servicios | Alejandro Morales">
+  <meta name="twitter:description" content="Catálogo completo de servicios informáticos con precios orientativos.">
+  <meta name="twitter:image" content="https://alek0byte.github.io/alejandro-morales-services/assets/img/og-image.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/fixes.css">
 </head>
 <body>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">AM<span>.</span></span><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a><button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button><nav class="main-nav"><a href="index.html">Inicio</a><a class="active" href="servicios.html">Servicios</a><a href="condiciones.html">Condiciones</a><a href="contacto.html">Contacto</a></nav></header>
-<main class="wrap inner-page">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">AM<span>.</span></span><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a>
+  <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+  <nav id="main-nav" class="main-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a class="active" aria-current="page" href="servicios.html">Servicios</a><a href="condiciones.html">Condiciones</a><a href="contacto.html">Contacto</a></nav>
+</header>
+<main id="contenido" class="wrap inner-page">
   <div class="page-title"><p class="kicker">CATÁLOGO COMPLETO</p><h1>Servicios <em>informáticos.</em></h1><p>Consulta las áreas de trabajo, busca un servicio concreto o filtra por categoría.</p></div>
-  <div class="catalog-tools"><label class="search-box"><span>⌕</span><input id="service-search" type="search" placeholder="Buscar un servicio..."></label><div id="category-filters" class="filter-list" aria-label="Filtrar por categoría"></div></div>
+  <div class="catalog-tools">
+    <label class="search-box" for="service-search"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar servicios</span><input id="service-search" type="search" placeholder="Buscar un servicio..." autocomplete="off" aria-describedby="catalog-status"></label>
+    <div id="category-filters" class="filter-list" role="group" aria-label="Filtrar por categoría"></div>
+  </div>
+  <p id="catalog-status" class="sr-only" role="status" aria-live="polite"></p>
   <div id="catalog-content" class="catalog-content"><p class="loading">Cargando catálogo...</p></div>
   <p class="catalog-footnote">Los precios son orientativos y pueden variar según la complejidad del trabajo. Consulta las <a href="condiciones.html">condiciones del servicio</a>.</p>
 </main>
-<footer class="site-footer wrap"><a class="brand footer-brand" href="index.html"><span class="brand-mark">AM<span>.</span></span><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a><p>Catálogo de servicios informáticos · Actualizado noviembre 2026</p></footer>
-<a class="floating-whatsapp" href="https://wa.me/5359216497" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">↗ <span>WhatsApp</span></a>
+<footer class="site-footer wrap">
+  <a class="brand footer-brand" href="index.html"><span class="brand-mark">AM<span>.</span></span><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a>
+  <nav class="footer-nav" aria-label="Navegación del pie"><a href="index.html">Inicio</a><a href="servicios.html">Servicios</a><a href="condiciones.html">Condiciones</a><a href="contacto.html">Contacto</a></nav>
+  <p>Catálogo de servicios informáticos · Actualizado noviembre 2026</p>
+</footer>
+<a class="floating-whatsapp" href="https://wa.me/5359216497?text=Hola%20Alejandro%2C%20te%20escribo%20desde%20tu%20web.%20Necesito%20ayuda%20con%3A%20" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">↗ <span>WhatsApp</span></a>
 <script src="assets/js/site.js"></script><script src="assets/js/catalog.js"></script>
 </body></html>

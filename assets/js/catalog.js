@@ -2,14 +2,20 @@
  const container=document.getElementById('catalog-content');
  const filters=document.getElementById('category-filters');
  const search=document.getElementById('service-search');
+ const status=document.getElementById('catalog-status');
  if(!container||!filters||!search)return;
  let catalog;
  try{const response=await fetch('data/catalogo.json');if(!response.ok)throw new Error('No se pudo cargar el catálogo');catalog=await response.json();}
  catch(error){container.innerHTML='<p class="empty-state">No se pudo cargar el catálogo. Comprueba que data/catalogo.json esté en el repositorio.</p>';return;}
  let active='Todas';
+ let interacted=false;
  const categories=['Todas',...catalog.services.map(group=>group.category)];
- filters.innerHTML=categories.map(category=>`<button class="filter-button ${category==='Todas'?'active':''}" type="button" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join('');
+ filters.innerHTML=categories.map(category=>`<button class="filter-button ${category==='Todas'?'active':''}" type="button" data-category="${escapeHtml(category)}" aria-pressed="${category==='Todas'}">${escapeHtml(category)}</button>`).join('');
  function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+ function announce(count){
+  if(!status)return;
+  status.textContent=count===0?'No se encontraron servicios':count+(count===1?' servicio encontrado':' servicios encontrados');
+ }
  function render(){
   const query=search.value.trim().toLocaleLowerCase('es');
   let visible=0;
@@ -24,31 +30,48 @@
    }).join('');
    return `<section class="category-block" id="${slug(group.category)}"><div class="category-heading"><span>${String(index+1).padStart(2,'0')} /</span><h2>${escapeHtml(group.category)}</h2></div><div class="service-list">${cards}</div>${group.note?`<p class="category-note">${escapeHtml(group.note)}</p>`:''}</section>`;
   }).join('');
-  if(!visible)container.innerHTML='<p class="empty-state">No se encontraron servicios con esa búsqueda.</p>';
+  if(!visible)container.innerHTML='<p class="empty-state">No se encontraron servicios con esa búsqueda. <button type="button" class="link-button" id="clear-filters">Ver todos los servicios</button></p>';
+  if(interacted)announce(visible);
  }
  function slug(text){return text.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
- filters.addEventListener('click',event=>{const button=event.target.closest('button[data-category]');if(!button)return;active=button.dataset.category;filters.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===button));render();});
- search.addEventListener('input',render);
+ function setActive(category){
+  active=category;
+  filters.querySelectorAll('button[data-category]').forEach(button=>{
+   const isActive=button.dataset.category===category;
+   button.classList.toggle('active',isActive);
+   button.setAttribute('aria-pressed',String(isActive));
+  });
+ }
+ filters.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-category]');
+  if(!button)return;
+  interacted=true;
+  setActive(button.dataset.category);
+  render();
+ });
+ search.addEventListener('input',()=>{interacted=true;render();});
+ container.addEventListener('click',event=>{
+  if(!event.target.closest('#clear-filters'))return;
+  interacted=true;
+  search.value='';
+  setActive('Todas');
+  render();
+  search.focus();
+ });
  render();
- // Navegar directamente a una categoría mediante el enlace de la URL.
-function navigateToCategory() {
-    if (!window.location.hash) return;
 
-    const target = document.querySelector(
-        window.location.hash
-    );
-
-    if (target) {
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
-requestAnimationFrame(() => {
-    requestAnimationFrame(navigateToCategory);
-});
-
-window.addEventListener('hashchange', navigateToCategory);
+ // Navegar a una categoría concreta cuando se llega desde un enlace (#categoria).
+ // El catálogo se pinta después del fetch, así que el destino no existe todavía
+ // cuando se ejecuta este script: hay que buscarlo de nuevo tras renderizar.
+ async function navigateToCategory(){
+  if(!window.location.hash)return;
+  if(document.readyState!=='complete')await new Promise(resolve=>window.addEventListener('load',resolve,{once:true}));
+  let target=null;
+  try{target=document.querySelector(window.location.hash);}catch(error){return;}
+  if(!target)return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+ }
+ await navigateToCategory();
+ window.addEventListener('hashchange',navigateToCategory);
 })();
