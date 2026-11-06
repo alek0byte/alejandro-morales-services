@@ -30,4 +30,25 @@
  filters.addEventListener('click',event=>{const button=event.target.closest('button[data-category]');if(!button)return;active=button.dataset.category;filters.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===button));render();});
  search.addEventListener('input',render);
  render();
+ // Navegar directamente a una categoría mediante el enlace de la URL.
+function navigateToCategory() {
+    if (!window.location.hash) return;
+
+    const target = document.querySelector(
+        window.location.hash
+    );
+
+    if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+requestAnimationFrame(() => {
+    requestAnimationFrame(navigateToCategory);
+});
+
+window.addEventListener('hashchange', navigateToCategory);
 })();
