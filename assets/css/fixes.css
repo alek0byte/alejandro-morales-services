@@ -19,4 +19,17 @@ img{display:block;max-width:100%;height:auto}
 .orb-one,
 .orb-two {
     display: none;
+  /* Corrección del espacio de la portada en móviles */
+@media (max-width: 650px) {
+    .hero-art {
+        height: 400px;
+        min-height: 400px;
+        overflow: visible;
+        margin-top: 15px;
+    }
+
+    .profile-card {
+        max-width: 230px;
+    }
+}
 }
