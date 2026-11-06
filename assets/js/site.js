@@ -64,6 +64,23 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
+  /* ---------- Fecha de actualización, leída del catálogo ---------- */
+  // Se toma el valor "updated" de data/catalogo.json para no repetir la fecha a mano
+  // en cinco archivos. La ruta se calcula desde site.js para que también funcione en 404.
+  const footerUpdated=document.querySelector('[data-updated]');
+  if(footerUpdated){
+    const siteScript=document.querySelector('script[src$="site.js"]');
+    const siteRoot=siteScript?new URL('../../',siteScript.src):new URL('./',location.href);
+    const catalogo=window.__catalogo||(window.__catalogo=fetch(new URL('data/catalogo.json',siteRoot))
+      .then(response=>response.ok?response.json():null));
+    catalogo
+      .then(data=>{
+        const value=data&&data.updated?String(data.updated).trim():'';
+        if(value)footerUpdated.textContent=' · Actualizado '+value.charAt(0).toLowerCase()+value.slice(1);
+      })
+      .catch(()=>{});
+  }
+
   /* ---------- Evita que el botón flotante tape el pie de página ---------- */
   const floating=document.querySelector('.floating-whatsapp');
   const footer=document.querySelector('.site-footer');

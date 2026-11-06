@@ -5,7 +5,14 @@
  const status=document.getElementById('catalog-status');
  if(!container||!filters||!search)return;
  let catalog;
- try{const response=await fetch('data/catalogo.json');if(!response.ok)throw new Error('No se pudo cargar el catálogo');catalog=await response.json();}
+ try{
+  // Una sola petición del catálogo aunque varias partes de la página lo necesiten.
+  window.__catalogo=window.__catalogo||fetch('data/catalogo.json').then(response=>{
+   if(!response.ok)throw new Error('No se pudo cargar el catálogo');
+   return response.json();
+  });
+  catalog=await window.__catalogo;
+ }
  catch(error){container.innerHTML='<p class="empty-state">No se pudo cargar el catálogo. Comprueba que data/catalogo.json esté en el repositorio.</p>';return;}
  let active='Todas';
  let interacted=false;
