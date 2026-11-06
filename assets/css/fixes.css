@@ -11,25 +11,16 @@ img{display:block;max-width:100%;height:auto}
 .contact-layout .content-panel,.contact-aside{align-self:start;min-height:0;height:auto}
 .floating-whatsapp{right:max(14px,calc((100vw - 1120px)/2));bottom:16px;max-width:calc(100vw - 28px);box-sizing:border-box;white-space:nowrap;transition:opacity .2s,transform .2s,background .2s}
 .floating-whatsapp.is-hidden{opacity:0;transform:translateY(14px);pointer-events:none;visibility:hidden}
+.orb-one,.orb-two{display:none}
+
+/* El área decorativa del retrato debe crecer con la tarjeta.
+   Con altura fija, la tarjeta se desbordaba y el nombre quedaba recortado. */
+@media(max-width:850px){
+  .hero-art{height:auto;min-height:0;padding-block:26px 30px}
+}
 @media(max-width:650px){
   .profile-card{width:min(230px,76%)}
   .profile-photo{height:260px}
   .floating-whatsapp{right:12px;bottom:12px;max-width:calc(100vw - 24px)}
   .hero-art{max-width:100%;min-width:0}
-.orb-one,
-.orb-two {
-    display: none;
-  /* Corrección del espacio de la portada en móviles */
-@media (max-width: 650px) {
-    .hero-art {
-        height: 400px;
-        min-height: 400px;
-        overflow: visible;
-        margin-top: 15px;
-    }
-
-    .profile-card {
-        max-width: 230px;
-    }
-}
 }
