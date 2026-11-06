@@ -15,7 +15,7 @@
   let visible=0;
   container.innerHTML=catalog.services.map((group,index)=>{
    if(active!=='Todas'&&active!==group.category)return '';
-   const items=group.items.filter(item=>(item.name+' '+(item.description||'')+' '+(item.price||'')+' '+(item.subcategory||'')).toLocaleLowerCase('es').includes(query));
+   const items=group.items.filter(item=>(group.category+' '+item.name+' '+(item.description||'')+' '+(item.price||'')+' '+(item.subcategory||'')).toLocaleLowerCase('es').includes(query));
    if(!items.length)return '';
    visible+=items.length;
    const cards=items.map(item=>{
