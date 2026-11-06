@@ -16,4 +16,7 @@ img{display:block;max-width:100%;height:auto}
   .profile-photo{height:260px}
   .floating-whatsapp{right:12px;bottom:12px;max-width:calc(100vw - 24px)}
   .hero-art{max-width:100%;min-width:0}
+.orb-one,
+.orb-two {
+    display: none;
 }
