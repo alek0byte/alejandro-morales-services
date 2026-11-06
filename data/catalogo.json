@@ -3,7 +3,7 @@
   "owner": "Alejandro Morales",
   "whatsapp": "https://wa.me/5359216497",
   "conditions": [
-    "Estoy experimentado en TODO lo que tengo puesto aquí, nada es inventado para sacar dinero al cliente.",
+    "Tengo experiencia en todos los servicios que aparecen aquí; no incluyo trabajos que no sepa realizar.",
     "El pago del domicilio siempre es obligatorio independientemente de que el servicio pueda ser culminado. Siempre se intentará al máximo que el servicio resulte satisfactorio por todas las vías posibles.",
     "En la cotización siempre se evalúa el precio de manera lógica dependiendo de la complejidad del trabajo y el tiempo que me tome.",
     "Los precios son orientativos y pueden variar según la complejidad del trabajo.",
@@ -144,7 +144,7 @@
           "price": "10 USD"
         },
         {
-          "name": "Restablecimiento de fábrica sin pérdida de datos del dispositivo",
+          "name": "Restablecimiento del dispositivo con respaldo previo y posterior recuperación de datos cuando sea técnicamente posible",
           "price": "10 USD"
         },
         {
