@@ -1,0 +1,36 @@
+---
+title: Contacto | {{owner}}
+description: Contacta con {{owner}} para solicitar servicios informáticos o una cotización. Atención directa por WhatsApp.
+og_description: Cuéntame qué necesitas y te respondo con una cotización. Atención directa por WhatsApp.
+twitter_description: Cuéntame qué necesitas y te respondo con una cotización.
+full_meta: yes
+canonical_path: contacto.html
+nav: contacto.html
+floating: yes
+jsonld: faq
+---
+<main id="contenido" class="wrap inner-page">
+  <div class="page-title"><p class="kicker">CONTACTO DIRECTO</p><h1>Cuéntame qué <em>necesitas.</em></h1><p>Describe brevemente el problema o el servicio que buscas. Podemos comenzar por una consulta y una cotización.</p></div>
+  <div class="contact-layout">
+    <section class="content-panel contact-main">
+      <span class="contact-symbol" aria-hidden="true">↗</span>
+      <p class="kicker">WHATSAPP</p>
+      <h2>Hablemos directamente.</h2>
+      <p class="muted">Escríbeme para consultar disponibilidad, explicar tu necesidad o solicitar una cotización.</p>
+      <p class="contact-phone"><a href="{{wa_link}}" target="_blank" rel="noopener">{{phone}}</a><button class="copy-button" type="button" data-copy="{{phone_e164}}" data-copy-status="copy-status">Copiar número</button></p>
+      <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
+      <a class="button primary" href="{{wa_link}}" target="_blank" rel="noopener">Abrir conversación en WhatsApp <span aria-hidden="true">↗</span></a>
+    </section>
+    <aside class="contact-aside">
+      <p class="kicker">ANTES DE ESCRIBIR</p>
+      <h3>Para ayudarte mejor</h3>
+      <ul><li>Explica qué equipo o dispositivo tienes.</li><li>Describe el problema o el resultado que necesitas.</li><li>Si puedes, incluye el modelo del equipo y cualquier mensaje de error.</li></ul>
+      <a class="text-link" href="{{root}}servicios.html">Consultar el catálogo completo <span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+  <section class="content-panel faq" aria-labelledby="faq-title">
+    <p class="kicker">DUDAS HABITUALES</p>
+    <h2 id="faq-title">Preguntas frecuentes</h2>
+    {{{faq_html}}}
+  </section>
+</main>

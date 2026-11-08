@@ -1,0 +1,398 @@
+{
+  "owner": "Alejandro Morales",
+  "phone": "+53 5921 6497",
+  "whatsapp_message": "Hola Alejandro, te escribo desde tu web. Necesito ayuda con: ",
+  "updated_date": "2026-11-06",
+  "conditions": [
+    "Tengo experiencia en todos los servicios que aparecen aquí; no incluyo trabajos que no sepa realizar.",
+    "El pago del domicilio siempre es obligatorio independientemente de que el servicio pueda ser culminado. Siempre se intentará al máximo que el servicio resulte satisfactorio por todas las vías posibles.",
+    "En la cotización siempre se evalúa el precio de manera lógica dependiendo de la complejidad del trabajo y el tiempo que me tome.",
+    "Los precios son orientativos y pueden variar según la complejidad del trabajo.",
+    "Para que sea posible incluir los componentes o piezas que usted desea, se debe pagar por adelantado para realizar la compra de los mismos en caso de no tenerlos disponibles.",
+    "Los trabajos que requieran desplazamiento pueden tener un cargo adicional.",
+    "Los servicios especializados se cotizan después de evaluar el equipo o la infraestructura.",
+    "Se recomienda realizar un respaldo de los datos críticos antes de intervenir un equipo.",
+    "Los servicios pueden incluir respaldo de los archivos, pero no se garantiza la integridad completa de los mismos si su almacenamiento de origen está defectuoso.",
+    "El diagnóstico no implica necesariamente la reparación del equipo.",
+    "En caso de que el precio le parezca excesivo, podríamos renegociarlo teniendo en cuenta el tiempo, el dinero, el gasto de energía y el interés invertidos en aprender a realizar este servicio."
+  ],
+  "procedure": [
+    {
+      "number": "01",
+      "title": "COTIZACIÓN"
+    },
+    {
+      "number": "02",
+      "title": "CLIENTE ACEPTA PRECIO"
+    },
+    {
+      "number": "03",
+      "title": "MANOS A LA OBRA"
+    },
+    {
+      "number": "04",
+      "title": "PAGO"
+    }
+  ],
+  "procedure_note": "En caso de que el trabajo lo amerite y se haya extendido más de lo normal, una vez terminado se le propone al cliente una recotización, bien sea de menos dinero o más según el tiempo extendido.",
+  "faq": [
+    {
+      "question": "¿Cómo se calcula el precio de un servicio?",
+      "answer": "Cada trabajo se cotiza según su complejidad y el tiempo que requiera. Los precios del catálogo son orientativos y pueden variar; si el trabajo se extiende más de lo normal, se propone una recotización al terminar."
+    },
+    {
+      "question": "¿El diagnóstico incluye la reparación?",
+      "answer": "No. El diagnóstico no implica necesariamente la reparación del equipo: primero se evalúa el problema y se te presenta la cotización."
+    },
+    {
+      "question": "¿Cuándo se paga el servicio?",
+      "answer": "El pago del domicilio es obligatorio al finalizar, aunque el servicio no pueda completarse; en esos casos se intenta resolverlo por todas las vías posibles. Si hay que comprar piezas, se paga por adelantado cuando no estén disponibles."
+    },
+    {
+      "question": "¿Qué pasa con mis datos?",
+      "answer": "Se recomienda respaldar los datos críticos antes de intervenir cualquier equipo. El servicio puede incluir respaldo de archivos, pero no se garantiza la integridad completa si el almacenamiento de origen está defectuoso."
+    },
+    {
+      "question": "¿Trabajas a domicilio?",
+      "answer": "Los trabajos que requieran desplazamiento pueden tener un cargo adicional, que se acuerda en la cotización."
+    },
+    {
+      "question": "¿Y si el precio me parece alto?",
+      "answer": "El precio se puede renegociar teniendo en cuenta el tiempo, los gastos y el trabajo invertido."
+    }
+  ],
+  "home_cards": [
+    {
+      "category": "Sistemas operativos y software",
+      "icon": "⌘",
+      "title": "Sistemas y software",
+      "text": "Instalación, configuración y optimización de sistemas operativos y aplicaciones."
+    },
+    {
+      "category": "Mantenimiento y reparación de PC",
+      "icon": "▣",
+      "title": "PC y mantenimiento",
+      "text": "Diagnóstico, mantenimiento físico y lógico, reparación y puesta a punto."
+    },
+    {
+      "category": "Redes y conectividad",
+      "icon": "⌁",
+      "title": "Redes y conectividad",
+      "text": "Configuración de redes, routers, conexiones LAN y acceso remoto."
+    },
+    {
+      "category": "Almacenamiento y recuperación de datos",
+      "icon": "◫",
+      "title": "Datos y almacenamiento",
+      "text": "Clonación, respaldo, transferencia y recuperación lógica de archivos."
+    }
+  ],
+  "services": [
+    {
+      "category": "Copia de multimedia",
+      "items": [
+        {
+          "name": "Llenado de memorias",
+          "description": "Banco de datos de películas, series, novelas y música. Si no encuentra lo que busca, puede solicitarlo.",
+          "prices": [
+            {
+              "label": "8 GB",
+              "price": "300 CUP"
+            },
+            {
+              "label": "16 GB",
+              "price": "400 CUP"
+            },
+            {
+              "label": "32 GB",
+              "price": "500 CUP"
+            },
+            {
+              "label": "64 GB",
+              "price": "600 CUP"
+            }
+          ],
+          "type": "capacity"
+        }
+      ]
+    },
+    {
+      "category": "Sistemas operativos y software",
+      "items": [
+        {
+          "name": "Instalación de Windows y controladores (drivers)",
+          "price": "10 USD",
+          "offer": true
+        },
+        {
+          "name": "Instalación y configuración personalizada de Windows, drivers y programas solicitados",
+          "price": "15 USD",
+          "offer": true
+        },
+        {
+          "name": "Instalación de Linux (Arch Linux + Hyprland + Caelestia, ZorinOS, Linux Mint y otras distribuciones según el equipo y las necesidades)",
+          "price": "A partir de 10 USD"
+        },
+        {
+          "name": "Instalación y configuración de Linux y programas solicitados",
+          "price": "15 USD"
+        },
+        {
+          "name": "Instalación y configuración de programas individuales (Adobe Creative Cloud Collection, Office y otros)",
+          "price": "5 USD"
+        },
+        {
+          "name": "Personalización de escritorios, como los que se muestran en redes sociales",
+          "price": "10 USD"
+        },
+        {
+          "name": "Actualización del sistema operativo",
+          "price": "5 USD"
+        },
+        {
+          "name": "Optimización y puesta a punto de Windows",
+          "price": "A partir de 6 USD"
+        },
+        {
+          "name": "Configuración de perfiles y cuentas de usuario, según la necesidad y el problema existente",
+          "price": "A partir de 3 USD"
+        },
+        {
+          "name": "Actualización del antivirus",
+          "price": "2 USD"
+        },
+        {
+          "name": "Solución de problemas de software en Smart TVs, como cuentas o aplicaciones",
+          "price": "10 USD",
+          "subcategory": "Televisores inteligentes"
+        },
+        {
+          "name": "Personalización de interfaz en Smart TVs",
+          "price": "5 USD",
+          "subcategory": "Televisores inteligentes"
+        }
+      ]
+    },
+    {
+      "category": "Dispositivos móviles",
+      "items": [
+        {
+          "name": "Instalación o actualización de aplicaciones",
+          "price": "2 USD"
+        },
+        {
+          "name": "Actualización del sistema operativo oficial (si el dispositivo ya no recibe actualizaciones, se instalará una versión oficial compatible)",
+          "price": "10 USD"
+        },
+        {
+          "name": "Actualización del sistema operativo no oficial, en dispositivos compatibles",
+          "price": "20 USD"
+        },
+        {
+          "name": "Solución de problemas con cuentas de redes sociales",
+          "price": "10 USD"
+        },
+        {
+          "name": "Aumento de la seguridad y recuperabilidad de las cuentas de redes sociales (2FA y opciones de recuperación)",
+          "price": "10 USD"
+        },
+        {
+          "name": "Restablecimiento del dispositivo con respaldo previo y posterior recuperación de datos cuando sea técnicamente posible",
+          "price": "10 USD"
+        },
+        {
+          "name": "Flasheo del móvil",
+          "price": "15 USD"
+        },
+        {
+          "name": "Configuración inicial de móvil nuevo o después de un restablecimiento o flasheo",
+          "price": "10 USD"
+        }
+      ]
+    },
+    {
+      "category": "Mantenimiento y reparación de PC",
+      "items": [
+        {
+          "name": "Diagnóstico técnico completo y profesional de su PC",
+          "price": "5 USD"
+        },
+        {
+          "name": "Limpieza lógica y organización",
+          "price": "5 USD"
+        },
+        {
+          "name": "Limpieza física de PC o mantenimiento",
+          "price": "7 USD"
+        },
+        {
+          "name": "Mantenimiento físico y lógico completo",
+          "price": "15 USD"
+        },
+        {
+          "name": "Eliminación de virus o software malicioso",
+          "price": "10 USD"
+        },
+        {
+          "name": "Sustitución e instalación de componentes",
+          "price": "10 USD"
+        },
+        {
+          "name": "Revisión de temperaturas, aumento de rendimiento y overclocking",
+          "price": "A partir de 5 USD"
+        }
+      ],
+      "note": "El aumento de rendimiento es una optimización personalizada y puede variar dependiendo de la complejidad."
+    },
+    {
+      "category": "Almacenamiento y recuperación de datos",
+      "items": [
+        {
+          "name": "Clonación de disco duro o SSD y/o migración de sistema operativo",
+          "price": "10 USD"
+        },
+        {
+          "name": "Respaldo de información",
+          "price": "5 USD"
+        },
+        {
+          "name": "Organización y transferencia de archivos",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de copias de seguridad automáticas",
+          "price": "10 USD"
+        },
+        {
+          "name": "Diagnóstico de problemas de almacenamiento",
+          "price": "4 USD"
+        },
+        {
+          "name": "Recuperación lógica de archivos eliminados",
+          "price": "Desde 8 USD"
+        }
+      ],
+      "note": "La recuperación de datos depende del estado del dispositivo y no se garantiza en todos los casos."
+    },
+    {
+      "category": "Redes y conectividad",
+      "items": [
+        {
+          "name": "Configuración de router Wi-Fi",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de red doméstica o cámaras de seguridad",
+          "price": "50 USD"
+        },
+        {
+          "name": "Configuración de conexiones LAN",
+          "price": "5 USD"
+        },
+        {
+          "name": "Diagnóstico de problemas de conectividad",
+          "price": "5 USD"
+        },
+        {
+          "name": "Compartición de carpetas e impresoras en red",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de acceso remoto",
+          "price": "5 USD"
+        },
+        {
+          "name": "Organización y documentación básica de una red",
+          "price": "10 USD"
+        }
+      ]
+    },
+    {
+      "category": "Impresoras y periféricos",
+      "items": [
+        {
+          "name": "Instalación de impresora",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de impresora y escáneres en red",
+          "price": "5 USD"
+        },
+        {
+          "name": "Diagnóstico de problemas de impresión",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de periféricos",
+          "price": "5 USD"
+        }
+      ]
+    },
+    {
+      "category": "Servicios en servidores y virtualización",
+      "items": [
+        {
+          "name": "Instalación de Proxmox VE u otro hipervisor",
+          "price": "20 USD"
+        },
+        {
+          "name": "Creación y configuración de máquinas virtuales",
+          "price": "10 USD"
+        },
+        {
+          "name": "Instalación de sistemas operativos y servidores en máquinas virtuales (NAS como OMV, correo como iRedMail y cortafuegos/NAT como pfSense)",
+          "price": "10 USD"
+        },
+        {
+          "name": "Configuración de almacenamiento compartido",
+          "price": "10 USD"
+        },
+        {
+          "name": "Configuración de respaldos de máquinas virtuales",
+          "price": "10 USD"
+        },
+        {
+          "name": "Diagnóstico y optimización de servidores",
+          "price": "15 USD"
+        },
+        {
+          "name": "Documentación técnica de infraestructura",
+          "price": "10 USD"
+        }
+      ]
+    },
+    {
+      "category": "Servicios informáticos adicionales o para empresas",
+      "items": [
+        {
+          "name": "Asesoría para compra de PC y componentes",
+          "price": "5 USD"
+        },
+        {
+          "name": "Elaboración de inventarios técnicos",
+          "price": "Desde 5 USD"
+        },
+        {
+          "name": "Elaboración de expedientes técnicos de equipos",
+          "price": "Desde 4 USD"
+        },
+        {
+          "name": "Instalación y configuración de software de videoconferencia",
+          "price": "5 USD"
+        },
+        {
+          "name": "Configuración de herramientas de productividad",
+          "price": "5 USD"
+        },
+        {
+          "name": "Asistencia técnica remota",
+          "price": "5 USD"
+        },
+        {
+          "name": "Asesoramiento y capacitación informática básica",
+          "price": "5 USD por sesión"
+        }
+      ]
+    }
+  ]
+}

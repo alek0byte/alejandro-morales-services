@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alek0byte.github.io/alejandro-morales-services/sitemap.xml
