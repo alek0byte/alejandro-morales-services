@@ -17,13 +17,6 @@ Sube **todo el contenido** de esta carpeta conservando exactamente la estructura
 - `assets/js/catalog.js` — buscador y filtros del catálogo.
 - `assets/js/conditions.js` — carga de condiciones y procedimiento.
 
-## Publicación en GitHub Pages
-
-1. Crea un repositorio nuevo en GitHub.
-2. Sube el contenido de esta carpeta a la raíz del repositorio (no subas solamente el ZIP).
-3. En Settings → Pages, selecciona `Deploy from a branch`, rama `main` y carpeta `/ (root)`.
-4. Guarda y espera a que GitHub Pages publique el sitio.
-
 ## Identidad visual inicial
 
 - Fondo principal: `#101820`
