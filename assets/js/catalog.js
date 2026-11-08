@@ -1,4 +1,5 @@
 (async()=>{
+ const {escapeHtml}=Site;
  const container=document.getElementById('catalog-content');
  const filters=document.getElementById('category-filters');
  const search=document.getElementById('service-search');
@@ -6,19 +7,13 @@
  if(!container||!filters||!search)return;
  let catalog;
  try{
-  // Una sola petición del catálogo aunque varias partes de la página lo necesiten.
-  window.__catalogo=window.__catalogo||fetch('data/catalogo.json').then(response=>{
-   if(!response.ok)throw new Error('No se pudo cargar el catálogo');
-   return response.json();
-  });
-  catalog=await window.__catalogo;
+  catalog=await Site.loadCatalog();
  }
  catch(error){container.innerHTML='<p class="empty-state">No se pudo cargar el catálogo. Comprueba que data/catalogo.json esté en el repositorio.</p>';return;}
  let active='Todas';
  let interacted=false;
  const categories=['Todas',...catalog.services.map(group=>group.category)];
  filters.innerHTML=categories.map(category=>`<button class="filter-button ${category==='Todas'?'active':''}" type="button" data-category="${escapeHtml(category)}" aria-pressed="${category==='Todas'}">${escapeHtml(category)}</button>`).join('');
- function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
  function announce(count){
   if(!status)return;
   status.textContent=count===0?'No se encontraron servicios':count+(count===1?' servicio encontrado':' servicios encontrados');

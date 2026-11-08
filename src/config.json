@@ -1,0 +1,12 @@
+{
+  "site_url": "https://alek0byte.github.io/alejandro-morales-services",
+  "base_path": "/alejandro-morales-services",
+  "og_image": "assets/img/og-image.jpg",
+  "business_description": "Asistencia informática, mantenimiento y configuración de equipos, redes y sistemas.",
+  "nav": [
+    { "file": "index.html", "label": "Inicio" },
+    { "file": "servicios.html", "label": "Servicios" },
+    { "file": "condiciones.html", "label": "Condiciones" },
+    { "file": "contacto.html", "label": "Contacto" }
+  ]
+}

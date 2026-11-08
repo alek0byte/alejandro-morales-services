@@ -1,0 +1,21 @@
+---
+title: Servicios | {{owner}}
+description: Explora el catálogo de servicios informáticos de {{owner}}: sistemas, PC, redes, datos, móviles y servidores.
+og_description: Catálogo completo de servicios informáticos con precios orientativos y filtros por categoría.
+twitter_description: Catálogo completo de servicios informáticos con precios orientativos.
+full_meta: yes
+canonical_path: servicios.html
+nav: servicios.html
+scripts: shared, catalog
+floating: yes
+---
+<main id="contenido" class="wrap inner-page">
+  <div class="page-title"><p class="kicker">CATÁLOGO COMPLETO</p><h1>Servicios <em>informáticos.</em></h1><p>Consulta las áreas de trabajo, busca un servicio concreto o filtra por categoría.</p></div>
+  <div class="catalog-tools">
+    <label class="search-box" for="service-search"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar servicios</span><input id="service-search" type="search" placeholder="Buscar un servicio..." autocomplete="off" aria-describedby="catalog-status"></label>
+    <div id="category-filters" class="filter-list" role="group" aria-label="Filtrar por categoría"></div>
+  </div>
+  <p id="catalog-status" class="sr-only" role="status" aria-live="polite"></p>
+  <div id="catalog-content" class="catalog-content"><p class="loading">Cargando catálogo...</p></div>
+  <p class="catalog-footnote">Los precios son orientativos y pueden variar según la complejidad del trabajo. Consulta las <a href="{{root}}condiciones.html">condiciones del servicio</a>.</p>
+</main>

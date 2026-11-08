@@ -1,7 +1,8 @@
 {
-  "updated": "Noviembre 2026",
   "owner": "Alejandro Morales",
-  "whatsapp": "https://wa.me/5359216497",
+  "phone": "+53 5921 6497",
+  "whatsapp_message": "Hola Alejandro, te escribo desde tu web. Necesito ayuda con: ",
+  "updated_date": "2026-11-06",
   "conditions": [
     "Tengo experiencia en todos los servicios que aparecen aquí; no incluyo trabajos que no sepa realizar.",
     "El pago del domicilio siempre es obligatorio independientemente de que el servicio pueda ser culminado. Siempre se intentará al máximo que el servicio resulte satisfactorio por todas las vías posibles.",
@@ -34,6 +35,58 @@
     }
   ],
   "procedure_note": "En caso de que el trabajo lo amerite y se haya extendido más de lo normal, una vez terminado se le propone al cliente una recotización, bien sea de menos dinero o más según el tiempo extendido.",
+  "faq": [
+    {
+      "question": "¿Cómo se calcula el precio de un servicio?",
+      "answer": "Cada trabajo se cotiza según su complejidad y el tiempo que requiera. Los precios del catálogo son orientativos y pueden variar; si el trabajo se extiende más de lo normal, se propone una recotización al terminar."
+    },
+    {
+      "question": "¿El diagnóstico incluye la reparación?",
+      "answer": "No. El diagnóstico no implica necesariamente la reparación del equipo: primero se evalúa el problema y se te presenta la cotización."
+    },
+    {
+      "question": "¿Cuándo se paga el servicio?",
+      "answer": "El pago del domicilio es obligatorio al finalizar, aunque el servicio no pueda completarse; en esos casos se intenta resolverlo por todas las vías posibles. Si hay que comprar piezas, se paga por adelantado cuando no estén disponibles."
+    },
+    {
+      "question": "¿Qué pasa con mis datos?",
+      "answer": "Se recomienda respaldar los datos críticos antes de intervenir cualquier equipo. El servicio puede incluir respaldo de archivos, pero no se garantiza la integridad completa si el almacenamiento de origen está defectuoso."
+    },
+    {
+      "question": "¿Trabajas a domicilio?",
+      "answer": "Los trabajos que requieran desplazamiento pueden tener un cargo adicional, que se acuerda en la cotización."
+    },
+    {
+      "question": "¿Y si el precio me parece alto?",
+      "answer": "El precio se puede renegociar teniendo en cuenta el tiempo, los gastos y el trabajo invertido."
+    }
+  ],
+  "home_cards": [
+    {
+      "category": "Sistemas operativos y software",
+      "icon": "⌘",
+      "title": "Sistemas y software",
+      "text": "Instalación, configuración y optimización de sistemas operativos y aplicaciones."
+    },
+    {
+      "category": "Mantenimiento y reparación de PC",
+      "icon": "▣",
+      "title": "PC y mantenimiento",
+      "text": "Diagnóstico, mantenimiento físico y lógico, reparación y puesta a punto."
+    },
+    {
+      "category": "Redes y conectividad",
+      "icon": "⌁",
+      "title": "Redes y conectividad",
+      "text": "Configuración de redes, routers, conexiones LAN y acceso remoto."
+    },
+    {
+      "category": "Almacenamiento y recuperación de datos",
+      "icon": "◫",
+      "title": "Datos y almacenamiento",
+      "text": "Clonación, respaldo, transferencia y recuperación lógica de archivos."
+    }
+  ],
   "services": [
     {
       "category": "Copia de multimedia",
