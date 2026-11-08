@@ -1,4 +1,4 @@
-# Alejandro Morales · Servicios informáticos
+# Alejandro Morales · Servicios Informáticos
 
 Sitio web estático (HTML, CSS y JavaScript, sin frameworks) publicado con GitHub Pages
 desde la rama `main`, carpeta raíz. URL: https://alek0byte.github.io/alejandro-morales-services/
