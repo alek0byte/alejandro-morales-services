@@ -66,7 +66,7 @@ Abre http://localhost:8000. La página `404.html` usa rutas con el nombre del re
 
 ## Notas
 
-- Los precios son texto libre y conservan valores como `A partir de` y `Desde`.
+- Los precios son texto libre; usa `Desde X USD` para importes variables y `X USD` para importes fijos.
 - Las fuentes están incluidas en `assets/fonts/`; no se descargan de Google Fonts.
 - Para cambiar de nombre el repositorio o usar un dominio propio, actualiza `site_url` y
   `base_path` en `src/config.json` y vuelve a ejecutar el script.

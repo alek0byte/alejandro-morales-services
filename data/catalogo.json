@@ -2,19 +2,18 @@
   "owner": "Alejandro Morales",
   "phone": "+53 5921 6497",
   "whatsapp_message": "Hola Alejandro, te escribo desde tu web. Necesito ayuda con: ",
-  "updated_date": "2026-11-06",
+  "updated_date": "2026-11-09",
   "conditions": [
     "Tengo experiencia en todos los servicios que aparecen aquí; no incluyo trabajos que no sepa realizar.",
-    "El pago del domicilio siempre es obligatorio independientemente de que el servicio pueda ser culminado. Siempre se intentará al máximo que el servicio resulte satisfactorio por todas las vías posibles.",
+    "La visita a domicilio tiene un pago obligatorio, aunque el servicio no pueda completarse. Ese pago cubre el desplazamiento y se acuerda en la cotización. Siempre intentaré al máximo que el servicio resulte satisfactorio por todas las vías posibles.",
     "En la cotización siempre se evalúa el precio de manera lógica dependiendo de la complejidad del trabajo y el tiempo que me tome.",
     "Los precios son orientativos y pueden variar según la complejidad del trabajo.",
-    "Para que sea posible incluir los componentes o piezas que usted desea, se debe pagar por adelantado para realizar la compra de los mismos en caso de no tenerlos disponibles.",
-    "Los trabajos que requieran desplazamiento pueden tener un cargo adicional.",
+    "Para incluir los componentes o piezas que desees, debes pagar por adelantado cuando no estén disponibles.",
     "Los servicios especializados se cotizan después de evaluar el equipo o la infraestructura.",
     "Se recomienda realizar un respaldo de los datos críticos antes de intervenir un equipo.",
     "Los servicios pueden incluir respaldo de los archivos, pero no se garantiza la integridad completa de los mismos si su almacenamiento de origen está defectuoso.",
     "El diagnóstico no implica necesariamente la reparación del equipo.",
-    "En caso de que el precio le parezca excesivo, podríamos renegociarlo teniendo en cuenta el tiempo, el dinero, el gasto de energía y el interés invertidos en aprender a realizar este servicio."
+    "Si el precio te parece excesivo, puedo renegociarlo contigo teniendo en cuenta el tiempo, el dinero, el gasto de energía y el interés invertidos en aprender a realizar este servicio."
   ],
   "procedure": [
     {
@@ -34,11 +33,11 @@
       "title": "PAGO"
     }
   ],
-  "procedure_note": "En caso de que el trabajo lo amerite y se haya extendido más de lo normal, una vez terminado se le propone al cliente una recotización, bien sea de menos dinero o más según el tiempo extendido.",
+  "procedure_note": "Si el trabajo se ha extendido más de lo normal, al terminar te propongo una recotización: puede ser menor o mayor según el tiempo adicional.",
   "faq": [
     {
       "question": "¿Cómo se calcula el precio de un servicio?",
-      "answer": "Cada trabajo se cotiza según su complejidad y el tiempo que requiera. Los precios del catálogo son orientativos y pueden variar; si el trabajo se extiende más de lo normal, se propone una recotización al terminar."
+      "answer": "Cotizo cada trabajo según su complejidad y el tiempo que requiera. Los precios del catálogo son orientativos y pueden variar; si el trabajo se extiende más de lo normal, te propongo una recotización al terminar."
     },
     {
       "question": "¿El diagnóstico incluye la reparación?",
@@ -46,7 +45,7 @@
     },
     {
       "question": "¿Cuándo se paga el servicio?",
-      "answer": "El pago del domicilio es obligatorio al finalizar, aunque el servicio no pueda completarse; en esos casos se intenta resolverlo por todas las vías posibles. Si hay que comprar piezas, se paga por adelantado cuando no estén disponibles."
+      "answer": "El servicio se paga al finalizar. La visita a domicilio tiene un pago obligatorio que cubre el desplazamiento, aunque el servicio no pueda completarse; en esos casos intentaré resolverlo por todas las vías posibles. Si hay que comprar piezas, se paga por adelantado cuando no estén disponibles."
     },
     {
       "question": "¿Qué pasa con mis datos?",
@@ -54,7 +53,7 @@
     },
     {
       "question": "¿Trabajas a domicilio?",
-      "answer": "Los trabajos que requieran desplazamiento pueden tener un cargo adicional, que se acuerda en la cotización."
+      "answer": "Sí, trabajo a domicilio. La visita tiene un pago obligatorio que cubre el desplazamiento, aunque el servicio no pueda completarse. El importe se acuerda en la cotización."
     },
     {
       "question": "¿Y si el precio me parece alto?",
@@ -89,34 +88,6 @@
   ],
   "services": [
     {
-      "category": "Copia de multimedia",
-      "items": [
-        {
-          "name": "Llenado de memorias",
-          "description": "Banco de datos de películas, series, novelas y música. Si no encuentra lo que busca, puede solicitarlo.",
-          "prices": [
-            {
-              "label": "8 GB",
-              "price": "300 CUP"
-            },
-            {
-              "label": "16 GB",
-              "price": "400 CUP"
-            },
-            {
-              "label": "32 GB",
-              "price": "500 CUP"
-            },
-            {
-              "label": "64 GB",
-              "price": "600 CUP"
-            }
-          ],
-          "type": "capacity"
-        }
-      ]
-    },
-    {
       "category": "Sistemas operativos y software",
       "items": [
         {
@@ -131,7 +102,7 @@
         },
         {
           "name": "Instalación de Linux (Arch Linux + Hyprland + Caelestia, ZorinOS, Linux Mint y otras distribuciones según el equipo y las necesidades)",
-          "price": "A partir de 10 USD"
+          "price": "Desde 10 USD"
         },
         {
           "name": "Instalación y configuración de Linux y programas solicitados",
@@ -151,11 +122,11 @@
         },
         {
           "name": "Optimización y puesta a punto de Windows",
-          "price": "A partir de 6 USD"
+          "price": "Desde 6 USD"
         },
         {
           "name": "Configuración de perfiles y cuentas de usuario, según la necesidad y el problema existente",
-          "price": "A partir de 3 USD"
+          "price": "Desde 3 USD"
         },
         {
           "name": "Actualización del antivirus",
@@ -239,7 +210,7 @@
         },
         {
           "name": "Revisión de temperaturas, aumento de rendimiento y overclocking",
-          "price": "A partir de 5 USD"
+          "price": "Desde 5 USD"
         }
       ],
       "note": "El aumento de rendimiento es una optimización personalizada y puede variar dependiendo de la complejidad."
