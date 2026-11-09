@@ -131,7 +131,6 @@ def build_outputs():
     owner = data["owner"]
     digits = re.sub(r"\D", "", data["phone"])
     d = date.fromisoformat(data["updated_date"])
-    initials = "".join(w[0] for w in owner.split()[:2]).upper()
 
     g = {  # variables disponibles en todas las páginas
         "owner": owner,
@@ -140,8 +139,6 @@ def build_outputs():
         "phone_e164": "+" + digits,
         "wa_link": f"https://wa.me/{digits}?text={quote(data['whatsapp_message'], safe='')}",
         "updated_suffix": f" · Actualizado {MESES[d.month - 1]} {d.year}",
-        "brand_inner": (f'<span class="brand-mark">{esc_text(initials)}<span>.</span></span>'
-                        f'<span>{esc_text(owner.upper())}<small>SERVICIOS INFORMÁTICOS</small></span>'),
         "og_image": f"{site_url}/{cfg['og_image']}",
     }
     g["faq_html"] = "\n    ".join(
@@ -161,6 +158,11 @@ def build_outputs():
         root = base + "/" if absolute else ""
         home = base + "/" if absolute else "index.html"
         ctx = dict(g, root=root, home=home)
+        ctx["brand_inner"] = (
+            f'<img class="brand-logo" src="{root}assets/img/logo.png" alt="" '
+            f'width="98" height="144" decoding="async">'
+            f'<span>{esc_text(owner.upper())}<small>SERVICIOS INFORMÁTICOS</small></span>'
+        )
 
         ctx["home_cards"] = "\n      ".join(
             f'<a class="feature-card" href="{root}servicios.html#{slug(c["category"])}">'
