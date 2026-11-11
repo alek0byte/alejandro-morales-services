@@ -290,15 +290,15 @@
         },
         {
           "name": "Configuración de impresora y escáneres en red",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Diagnóstico de problemas de impresión",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Configuración de periféricos",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         }
       ]
     },
@@ -307,27 +307,27 @@
       "items": [
         {
           "name": "Instalación de Proxmox VE u otro hipervisor",
-          "price": "20 USD"
+          "price": "Desde 20 USD"
         },
         {
           "name": "Creación y configuración de máquinas virtuales",
+          "price": "Desde 10 USD"
+        },
+        {
+          "name": "Instalación de sistemas operativos y servidores en máquinas virtuales (NAS como OMV, correo como iRedMail o MDaemon y cortafuegos/NAT como pfSense)",
           "price": "10 USD"
         },
         {
-          "name": "Instalación de sistemas operativos y servidores en máquinas virtuales (NAS como OMV, correo como iRedMail y cortafuegos/NAT como pfSense)",
-          "price": "10 USD"
-        },
-        {
-          "name": "Configuración de almacenamiento compartido",
-          "price": "10 USD"
+          "name": "Configuración de almacenamiento compartido entre servidores o Alta Disponibilidad (HA)",
+          "price": "Desde 10 USD"
         },
         {
           "name": "Configuración de respaldos de máquinas virtuales",
-          "price": "10 USD"
+          "price": "Desde 5 USD"
         },
         {
           "name": "Diagnóstico y optimización de servidores",
-          "price": "15 USD"
+          "price": "Desde 10 USD"
         },
         {
           "name": "Documentación técnica de infraestructura",
@@ -339,16 +339,16 @@
       "category": "Servicios informáticos adicionales o para empresas",
       "items": [
         {
-          "name": "Asesoría para compra de PC y componentes",
-          "price": "5 USD"
+          "name": "Asesoría para compra de PC y componentes sencilla",
+          "price": "Gratis"
+        },
+        {
+          "name": "Asesoría para compra de PC y componentes exhaustiva",
+          "price": "Desde 2 USD"
         },
         {
           "name": "Elaboración de inventarios técnicos",
-          "price": "Desde 5 USD"
-        },
-        {
-          "name": "Elaboración de expedientes técnicos de equipos",
-          "price": "Desde 4 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Instalación y configuración de software de videoconferencia",
