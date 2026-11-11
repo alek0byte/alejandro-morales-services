@@ -134,7 +134,7 @@
         },
         {
           "name": "Solución de problemas de software en Smart TVs, como cuentas o aplicaciones",
-          "price": "10 USD",
+          "price": "5 USD",
           "subcategory": "Televisores inteligentes"
         },
         {
@@ -152,20 +152,20 @@
           "price": "2 USD"
         },
         {
-          "name": "Actualización del sistema operativo oficial (si el dispositivo ya no recibe actualizaciones, se instalará una versión oficial compatible)",
-          "price": "10 USD"
+          "name": "Actualización del sistema operativo oficial (si el dispositivo ya no recibe actualizaciones ya debe optar por una instalación de ROMs no oficial)",
+          "price": "5 USD"
         },
         {
-          "name": "Actualización del sistema operativo no oficial, en dispositivos compatibles",
-          "price": "20 USD"
+          "name": "Actualización del sistema operativo no oficial, en dispositivos compatibles (se le hará un seguimiento de correcto funcionamiento a su móvil por 1 mes sin costo)",
+          "price": "10 USD"
         },
         {
           "name": "Solución de problemas con cuentas de redes sociales",
-          "price": "10 USD"
+          "price": "5 USD"
         },
         {
           "name": "Aumento de la seguridad y recuperabilidad de las cuentas de redes sociales (2FA y opciones de recuperación)",
-          "price": "10 USD"
+          "price": "5 USD"
         },
         {
           "name": "Restablecimiento del dispositivo con respaldo previo y posterior recuperación de datos cuando sea técnicamente posible",
@@ -173,7 +173,7 @@
         },
         {
           "name": "Flasheo del móvil",
-          "price": "15 USD"
+          "price": "10 USD"
         },
         {
           "name": "Configuración inicial de móvil nuevo o después de un restablecimiento o flasheo",
