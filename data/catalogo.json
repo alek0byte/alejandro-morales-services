@@ -176,8 +176,8 @@
           "price": "10 USD"
         },
         {
-          "name": "Configuración inicial de móvil nuevo o después de un restablecimiento o flasheo",
-          "price": "10 USD"
+          "name": "Configuración inicial de un móvil nuevo o después de un restablecimiento o flasheo",
+          "price": "5 USD"
         }
       ]
     },
@@ -202,11 +202,14 @@
         },
         {
           "name": "Eliminación de virus o software malicioso",
-          "price": "10 USD"
+          "price": "Desde 5 USD"
         },
         {
-          "name": "Sustitución e instalación de componentes",
-          "price": "10 USD"
+          "name": "Sustitución e instalación de componentes/armado de ordenador",
+          "price": "Desde 2 USD"
+        }
+      ],
+      "note": "En un armado de PC el precio aumenta dependiendo la complejidad del mismo. Se armarn PCs personalizados con tubos de polietileno o acrílico"
         },
         {
           "name": "Revisión de temperaturas, aumento de rendimiento y overclocking",
@@ -224,23 +227,23 @@
         },
         {
           "name": "Respaldo de información",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Organización y transferencia de archivos",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Configuración de copias de seguridad automáticas",
-          "price": "10 USD"
+          "price": "Desde 5 USD"
         },
         {
           "name": "Diagnóstico de problemas de almacenamiento",
-          "price": "4 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Recuperación lógica de archivos eliminados",
-          "price": "Desde 8 USD"
+          "price": "Desde 2 USD"
         }
       ],
       "note": "La recuperación de datos depende del estado del dispositivo y no se garantiza en todos los casos."
@@ -250,7 +253,7 @@
       "items": [
         {
           "name": "Configuración de router Wi-Fi",
-          "price": "5 USD"
+          "price": "2 USD"
         },
         {
           "name": "Configuración de red doméstica o cámaras de seguridad",
@@ -262,19 +265,19 @@
         },
         {
           "name": "Diagnóstico de problemas de conectividad",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Compartición de carpetas e impresoras en red",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Configuración de acceso remoto",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Organización y documentación básica de una red",
-          "price": "10 USD"
+          "price": "Desde 5 USD"
         }
       ]
     },
@@ -283,7 +286,7 @@
       "items": [
         {
           "name": "Instalación de impresora",
-          "price": "5 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Configuración de impresora y escáneres en red",
