@@ -92,29 +92,29 @@
       "items": [
         {
           "name": "Instalación de Windows y controladores (drivers)",
-          "price": "10 USD",
+          "price": "5 USD",
           "offer": true
         },
         {
           "name": "Instalación y configuración personalizada de Windows, drivers y programas solicitados",
-          "price": "15 USD",
+          "price": "7 USD",
           "offer": true
         },
         {
-          "name": "Instalación de Linux (Arch Linux + Hyprland + Caelestia, ZorinOS, Linux Mint y otras distribuciones según el equipo y las necesidades)",
+          "name": "Instalación de Linux (Arch Linux/Cachy OS + Hyprland + algún dotfiles, ZorinOS, Linux Mint y otras distribuciones según el equipo y las necesidades)",
           "price": "Desde 10 USD"
         },
         {
           "name": "Instalación y configuración de Linux y programas solicitados",
-          "price": "15 USD"
+          "price": "Desde 10 USD"
         },
         {
           "name": "Instalación y configuración de programas individuales (Adobe Creative Cloud Collection, Office y otros)",
-          "price": "5 USD"
+          "price": "1 USD"
         },
         {
-          "name": "Personalización de escritorios, como los que se muestran en redes sociales",
-          "price": "10 USD"
+          "name": "Personalización de escritorios, rising, como los que se muestran en redes sociales",
+          "price": "Desde 10 USD"
         },
         {
           "name": "Actualización del sistema operativo",
@@ -126,7 +126,7 @@
         },
         {
           "name": "Configuración de perfiles y cuentas de usuario, según la necesidad y el problema existente",
-          "price": "Desde 3 USD"
+          "price": "Desde 2 USD"
         },
         {
           "name": "Actualización del antivirus",
