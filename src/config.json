@@ -6,6 +6,7 @@
   "nav": [
     { "file": "index.html", "label": "Inicio" },
     { "file": "servicios.html", "label": "Servicios" },
+    { "file": "presupuesto.html", "label": "Presupuestos" },
     { "file": "condiciones.html", "label": "Condiciones" },
     { "file": "contacto.html", "label": "Contacto" }
   ]

@@ -1,0 +1,67 @@
+---
+title: Generador de presupuestos | {{owner}}
+description: Arma presupuestos con el catálogo de servicios de {{owner}}, ajusta cantidades y comparte el resultado en PDF o por WhatsApp.
+og_description: Selecciona servicios, ajusta cantidades y genera un presupuesto profesional en PDF listo para compartir.
+twitter_description: Genera presupuestos en PDF a partir del catálogo de servicios.
+full_meta: yes
+canonical_path: presupuesto.html
+nav: presupuesto.html
+scripts: shared, presupuesto
+floating: yes
+---
+<main id="contenido" class="wrap inner-page">
+  <div class="page-title"><p class="kicker">HERRAMIENTA DE COTIZACIÓN</p><h1>Generador de <em>presupuestos.</em></h1><p>Selecciona los servicios solicitados, ajusta cantidades y precios, añade el desplazamiento y las observaciones, y comparte un presupuesto profesional.</p></div>
+  <div class="quote-layout">
+    <section class="content-panel" aria-labelledby="quote-setup-title">
+      <p class="kicker">DATOS DEL PRESUPUESTO</p>
+      <h2 id="quote-setup-title">Encabezado y cliente.</h2>
+      <div class="field-grid">
+        <label class="quote-field">Nº de presupuesto<input id="q-number" class="quote-input" type="text" autocomplete="off" inputmode="text"></label>
+        <label class="quote-field">Fecha<input id="q-date" class="quote-input" type="date"></label>
+        <label class="quote-field">Válido por<select id="q-validity" class="quote-input"><option value="3">3 días</option><option value="7" selected>7 días</option><option value="15">15 días</option><option value="30">30 días</option></select></label>
+        <label class="quote-field">Nombre del cliente<input id="q-client" class="quote-input" type="text" placeholder="Ej. María Pérez" autocomplete="off"></label>
+        <label class="quote-field">Teléfono del cliente<input id="q-phone" class="quote-input" type="tel" placeholder="Ej. 52123456" autocomplete="off"></label>
+      </div>
+    </section>
+    <div class="quote-columns">
+      <section class="quote-catalog-col" aria-labelledby="quote-catalog-title">
+        <h2 id="quote-catalog-title" class="sr-only">Catálogo de servicios</h2>
+        <div class="catalog-tools">
+          <label class="search-box" for="quote-search"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar servicios</span><input id="quote-search" type="search" placeholder="Buscar un servicio..." autocomplete="off" aria-describedby="quote-count"></label>
+          <div id="quote-filters" class="filter-list" role="group" aria-label="Filtrar por categoría"></div>
+        </div>
+        <p id="quote-count" class="sr-only" role="status" aria-live="polite"></p>
+        <div id="quote-catalog" class="quote-catalog"><p class="loading">Cargando catálogo...</p></div>
+      </section>
+      <aside class="quote-summary" aria-labelledby="quote-summary-title">
+        <section class="content-panel">
+          <p class="kicker">DESGLOSE DE MANO DE OBRA</p>
+          <h2 id="quote-summary-title">Tu presupuesto.</h2>
+          <div id="quote-lines"></div>
+          <div class="quote-extras">
+            <label class="quote-check-row"><input type="checkbox" id="q-travel"><span>Visita a domicilio (desplazamiento)</span></label>
+            <div class="quote-extras-grid">
+              <label class="quote-field">Desplazamiento (USD)<input type="number" id="q-travel-amount" class="quote-input" min="0" step="0.5" value="2" inputmode="decimal"></label>
+              <label class="quote-field">Descuento (USD)<input type="number" id="q-discount" class="quote-input" min="0" step="0.5" value="0" inputmode="decimal"></label>
+            </div>
+          </div>
+          <dl class="quote-totals">
+            <div class="quote-total-row"><dt>Subtotal — mano de obra</dt><dd id="t-sub">0 USD</dd></div>
+            <div class="quote-total-row" id="t-travel-row" hidden><dt>Desplazamiento</dt><dd id="t-travel">0 USD</dd></div>
+            <div class="quote-total-row" id="t-disc-row" hidden><dt>Descuento</dt><dd id="t-disc">0 USD</dd></div>
+            <div class="quote-total-final"><dt>TOTAL</dt><dd id="t-total">0 USD</dd></div>
+          </dl>
+          <label class="quote-field quote-notes">Observaciones<textarea id="q-notes" class="quote-input" rows="3" placeholder="Detalles del equipo, alcance del trabajo, acuerdos..."></textarea></label>
+          <div class="quote-actions">
+            <button type="button" id="q-pdf" class="button primary">Generar PDF</button>
+            <button type="button" id="q-whatsapp" class="button whatsapp">Compartir por WhatsApp</button>
+            <button type="button" id="q-copy" class="copy-button">Copiar resumen</button>
+            <button type="button" id="q-clear" class="copy-button quote-clear">Vaciar</button>
+          </div>
+          <p id="quote-status" class="sr-only" role="status" aria-live="polite"></p>
+          <p class="catalog-footnote">Descarga el PDF y adjúntalo después en el chat de WhatsApp. Los precios «desde» son mínimos orientativos y se ajustan según la complejidad del trabajo. Consulta las <a href="{{root}}condiciones.html">condiciones del servicio</a>.</p>
+        </section>
+      </aside>
+    </div>
+  </div>
+</main>

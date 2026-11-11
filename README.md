@@ -11,6 +11,9 @@ desde la rama `main`, carpeta raíz. URL: https://alek0byte.github.io/alejandro-
 | Teléfono, mensaje de WhatsApp, nombre, fecha de actualización | `data/catalogo.json` (`phone`, `whatsapp_message`, `owner`, `updated_date`) |
 | Preguntas frecuentes de Contacto | `data/catalogo.json` (`faq`) |
 | Las 4 tarjetas de la portada | `data/catalogo.json` (`home_cards`; la categoría debe existir en `services`) |
+| El generador de presupuestos (texto, botones, campos) | `src/pages/presupuesto.html` |
+| La lógica del generador (PDF, WhatsApp, cálculos) | `assets/js/presupuesto.js` |
+| Diseño del generador | `assets/css/site.css` (sección `Generador de presupuestos`, al final) |
 | El texto de una página | `src/pages/<página>.html` |
 | El menú (añadir o quitar páginas) | `src/config.json` (`nav`) |
 | Cabecera o pie | `src/partials/header.html` y `footer.html` |
@@ -31,8 +34,8 @@ error de sintaxis, si un servicio no tiene precio, si una tarjeta de la portada 
 categoría que no existe o si una página enlaza a un archivo que no existe.
 
 **No edites a mano** `index.html`, `servicios.html`, `condiciones.html`, `contacto.html`,
-`404.html`, `sitemap.xml` ni `robots.txt`: se generan desde `src/` y `data/`, y la próxima
-ejecución del script sobrescribiría los cambios.
+`presupuesto.html`, `404.html`, `sitemap.xml` ni `robots.txt`: se generan desde `src/` y
+`data/`, y la próxima ejecución del script sobrescribiría los cambios.
 
 ## Estructura
 
@@ -43,7 +46,9 @@ tools/build.py         genera las páginas, sitemap.xml y robots.txt
 assets/css/            fonts.css (fuentes locales) y site.css (diseño)
 assets/js/             site.js (menú, copiar teléfono, botón flotante),
                        shared.js (utilidades), catalog.js (catálogo),
-                       conditions.js (condiciones y proceso)
+                       conditions.js (condiciones y proceso),
+                       presupuesto.js (generador de presupuestos)
+assets/js/vendor/      jspdf.umd.min.js (generación local de PDF, sin CDN)
 assets/fonts, img/     tipografías DM Sans y Space Grotesk, imágenes
 .nojekyll              GitHub Pages sirve los archivos tal cual, sin Jekyll
 ```
@@ -53,6 +58,18 @@ assets/fonts, img/     tipografías DM Sans y Space Grotesk, imágenes
 `servicios.html` y `condiciones.html` cargan `data/catalogo.json` desde el navegador y dibujan el
 contenido con JavaScript. El resto (pie, menú, teléfono, FAQ, tarjetas, fecha) queda escrito
 en el HTML al ejecutar `build.py`, así que funciona aunque JavaScript falle.
+
+## Cómo funciona el generador de presupuestos
+
+`presupuesto.html` (en el menú como «Presupuestos») también carga `data/catalogo.json`: al
+marcar servicios se arma el desglose con cantidades y precios editables (los precios «desde»
+se marcan como mínimos orientativos), más desplazamiento, descuento y observaciones. El
+borrador se guarda solo en el navegador (`localStorage`) y el número (`PR-AAAA-NNNN`) avanza
+por año en cada navegador. «Generar PDF» descarga un documento A4 con la identidad visual del
+sitio (logo, banda oscura, acento turquesa, condiciones y pie con paginación) usando jsPDF
+incluido en `assets/js/vendor/`. «Compartir por WhatsApp» abre un chat con el teléfono del
+cliente (si el número tiene 8 dígitos se le añade el prefijo 53) y el resumen ya escrito; el
+PDF se adjunta después en el chat.
 
 ## Probar en local
 

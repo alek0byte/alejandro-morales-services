@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Arma presupuestos con el catálogo de servicios de Alejandro Morales, ajusta cantidades y comparte el resultado en PDF o por WhatsApp.">
+  <title>Generador de presupuestos | Alejandro Morales</title>
+  <link rel="canonical" href="https://alek0byte.github.io/alejandro-morales-services/presupuesto.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alejandro Morales · Servicios informáticos">
+  <meta property="og:title" content="Generador de presupuestos | Alejandro Morales">
+  <meta property="og:description" content="Selecciona servicios, ajusta cantidades y genera un presupuesto profesional en PDF listo para compartir.">
+  <meta property="og:url" content="https://alek0byte.github.io/alejandro-morales-services/presupuesto.html">
+  <meta property="og:image" content="https://alek0byte.github.io/alejandro-morales-services/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alejandro Morales · Servicios informáticos">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generador de presupuestos | Alejandro Morales">
+  <meta name="twitter:description" content="Genera presupuestos en PDF a partir del catálogo de servicios.">
+  <meta name="twitter:image" content="https://alek0byte.github.io/alejandro-morales-services/assets/img/og-image.jpg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
+  <link rel="icon" href="assets/img/app-icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png" sizes="180x180">
+  <link rel="preload" href="assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo.png" alt="" width="98" height="144" decoding="async"><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a>
+  <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+  <nav id="main-nav" class="main-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="servicios.html">Servicios</a><a class="active" aria-current="page" href="presupuesto.html">Presupuestos</a><a href="condiciones.html">Condiciones</a><a href="contacto.html">Contacto</a></nav>
+</header>
+<main id="contenido" class="wrap inner-page">
+  <div class="page-title"><p class="kicker">HERRAMIENTA DE COTIZACIÓN</p><h1>Generador de <em>presupuestos.</em></h1><p>Selecciona los servicios solicitados, ajusta cantidades y precios, añade el desplazamiento y las observaciones, y comparte un presupuesto profesional.</p></div>
+  <div class="quote-layout">
+    <section class="content-panel" aria-labelledby="quote-setup-title">
+      <p class="kicker">DATOS DEL PRESUPUESTO</p>
+      <h2 id="quote-setup-title">Encabezado y cliente.</h2>
+      <div class="field-grid">
+        <label class="quote-field">Nº de presupuesto<input id="q-number" class="quote-input" type="text" autocomplete="off" inputmode="text"></label>
+        <label class="quote-field">Fecha<input id="q-date" class="quote-input" type="date"></label>
+        <label class="quote-field">Válido por<select id="q-validity" class="quote-input"><option value="3">3 días</option><option value="7" selected>7 días</option><option value="15">15 días</option><option value="30">30 días</option></select></label>
+        <label class="quote-field">Nombre del cliente<input id="q-client" class="quote-input" type="text" placeholder="Ej. María Pérez" autocomplete="off"></label>
+        <label class="quote-field">Teléfono del cliente<input id="q-phone" class="quote-input" type="tel" placeholder="Ej. 52123456" autocomplete="off"></label>
+      </div>
+    </section>
+    <div class="quote-columns">
+      <section class="quote-catalog-col" aria-labelledby="quote-catalog-title">
+        <h2 id="quote-catalog-title" class="sr-only">Catálogo de servicios</h2>
+        <div class="catalog-tools">
+          <label class="search-box" for="quote-search"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar servicios</span><input id="quote-search" type="search" placeholder="Buscar un servicio..." autocomplete="off" aria-describedby="quote-count"></label>
+          <div id="quote-filters" class="filter-list" role="group" aria-label="Filtrar por categoría"></div>
+        </div>
+        <p id="quote-count" class="sr-only" role="status" aria-live="polite"></p>
+        <div id="quote-catalog" class="quote-catalog"><p class="loading">Cargando catálogo...</p></div>
+      </section>
+      <aside class="quote-summary" aria-labelledby="quote-summary-title">
+        <section class="content-panel">
+          <p class="kicker">DESGLOSE DE MANO DE OBRA</p>
+          <h2 id="quote-summary-title">Tu presupuesto.</h2>
+          <div id="quote-lines"></div>
+          <div class="quote-extras">
+            <label class="quote-check-row"><input type="checkbox" id="q-travel"><span>Visita a domicilio (desplazamiento)</span></label>
+            <div class="quote-extras-grid">
+              <label class="quote-field">Desplazamiento (USD)<input type="number" id="q-travel-amount" class="quote-input" min="0" step="0.5" value="2" inputmode="decimal"></label>
+              <label class="quote-field">Descuento (USD)<input type="number" id="q-discount" class="quote-input" min="0" step="0.5" value="0" inputmode="decimal"></label>
+            </div>
+          </div>
+          <dl class="quote-totals">
+            <div class="quote-total-row"><dt>Subtotal — mano de obra</dt><dd id="t-sub">0 USD</dd></div>
+            <div class="quote-total-row" id="t-travel-row" hidden><dt>Desplazamiento</dt><dd id="t-travel">0 USD</dd></div>
+            <div class="quote-total-row" id="t-disc-row" hidden><dt>Descuento</dt><dd id="t-disc">0 USD</dd></div>
+            <div class="quote-total-final"><dt>TOTAL</dt><dd id="t-total">0 USD</dd></div>
+          </dl>
+          <label class="quote-field quote-notes">Observaciones<textarea id="q-notes" class="quote-input" rows="3" placeholder="Detalles del equipo, alcance del trabajo, acuerdos..."></textarea></label>
+          <div class="quote-actions">
+            <button type="button" id="q-pdf" class="button primary">Generar PDF</button>
+            <button type="button" id="q-whatsapp" class="button whatsapp">Compartir por WhatsApp</button>
+            <button type="button" id="q-copy" class="copy-button">Copiar resumen</button>
+            <button type="button" id="q-clear" class="copy-button quote-clear">Vaciar</button>
+          </div>
+          <p id="quote-status" class="sr-only" role="status" aria-live="polite"></p>
+          <p class="catalog-footnote">Descarga el PDF y adjúntalo después en el chat de WhatsApp. Los precios «desde» son mínimos orientativos y se ajustan según la complejidad del trabajo. Consulta las <a href="condiciones.html">condiciones del servicio</a>.</p>
+        </section>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer class="site-footer wrap">
+  <a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/img/logo.png" alt="" width="98" height="144" decoding="async"><span>ALEJANDRO MORALES<small>SERVICIOS INFORMÁTICOS</small></span></a>
+  <nav class="footer-nav" aria-label="Navegación del pie"><a href="index.html">Inicio</a><a href="servicios.html">Servicios</a><a href="presupuesto.html">Presupuestos</a><a href="condiciones.html">Condiciones</a><a href="contacto.html">Contacto</a></nav>
+  <p>Catálogo de servicios informáticos<span class="footer-updated"> · Actualizado noviembre 2026</span></p>
+</footer>
+<a class="floating-whatsapp" href="https://wa.me/5359216497?text=Hola%20Alejandro%2C%20te%20escribo%20desde%20tu%20web.%20Necesito%20ayuda%20con%3A%20" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">↗ <span>WhatsApp</span></a>
+<script src="assets/js/site.js"></script><script src="assets/js/shared.js"></script><script src="assets/js/presupuesto.js"></script>
+</body>
+</html>
