@@ -68,8 +68,8 @@ borrador se guarda solo en el navegador (`localStorage`) y el número (`PR-AAAA-
 por año en cada navegador. «Generar PDF» descarga un documento A4 con la identidad visual del
 sitio (logo, banda oscura, acento turquesa, condiciones y pie con paginación) usando jsPDF
 incluido en `assets/js/vendor/`. «Compartir por WhatsApp» abre un chat con el teléfono del
-cliente (si el número tiene 8 dígitos se le añade el prefijo 53) y el resumen ya escrito; el
-PDF se adjunta después en el chat.
+dueño del negocio (el `phone` de `data/catalogo.json`) y el resumen ya escrito; el PDF se
+adjunta después en el chat.
 
 ## Probar en local
 

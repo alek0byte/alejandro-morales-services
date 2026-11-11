@@ -41,13 +41,9 @@
     };
   }
 
-  /* Teléfono de WhatsApp: acepta 8 dígitos locales (Cuba) y añade el 53. */
-  function waPhone(raw){
-    let d=String(raw||'').replace(/\D/g,'');
-    if(!d)return'';
-    if(d.startsWith('00'))d=d.slice(2);
-    if(d.length===8)d='53'+d;
-    return d;
+  /* El teléfono del dueño viene del catálogo; se usa tal cual en wa.me. */
+  function ownerWaPhone(){
+    return String(catalog&&catalog.phone||'').replace(/\D/g,'');
   }
 
   async function copyText(text){
@@ -469,15 +465,15 @@
       return;
     }
     const text=summaryText();
-    const phone=waPhone(state.clientPhone);
+    const phone=ownerWaPhone();
     if(phone){
       window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`,'_blank','noopener');
       status('Abriendo WhatsApp con el resumen del presupuesto.');
     }else{
       const copied=await copyText(text);
       status(copied
-        ?'No hay teléfono del cliente: resumen copiado. Pégalo en el chat de WhatsApp.'
-        :'No hay teléfono del cliente y no se pudo copiar. Escribe el teléfono del cliente para abrir el chat.');
+        ?'No se encontró el teléfono en el catálogo: resumen copiado. Pégalo en el chat de WhatsApp.'
+        :'No se encontró el teléfono en el catálogo y no se pudo copiar el resumen.');
     }
   }
 
