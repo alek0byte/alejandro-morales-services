@@ -207,16 +207,13 @@
         {
           "name": "Sustitución e instalación de componentes/armado de ordenador",
           "price": "Desde 2 USD"
-        }
-      ],
-      "note": "En un armado de PC el precio aumenta dependiendo la complejidad del mismo. Se armarn PCs personalizados con tubos de polietileno o acrílico"
         },
         {
           "name": "Revisión de temperaturas, aumento de rendimiento y overclocking",
           "price": "Desde 5 USD"
         }
       ],
-      "note": "El aumento de rendimiento es una optimización personalizada y puede variar dependiendo de la complejidad."
+      "note": "En un armado de PC el precio aumenta según la complejidad. Se arman PCs personalizados con tubos de polietileno o acrílico. El aumento de rendimiento es una optimización personalizada y puede variar según la complejidad."
     },
     {
       "category": "Almacenamiento y recuperación de datos",
