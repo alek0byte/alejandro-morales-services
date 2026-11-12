@@ -126,3 +126,12 @@ textarea.quote-input{resize:vertical;min-height:84px}
 .quote-clear:hover{border-color:#e57373;color:#e57373}
 @media(max-width:850px){.quote-columns{grid-template-columns:1fr}.quote-summary{position:static}}
 @media(max-width:650px){.field-grid,.quote-extras-grid{grid-template-columns:1fr}.quote-item{padding:12px 13px}.quote-item-catalog-price{display:none}.quote-actions{grid-template-columns:1fr}.quote-total-final dd{font-size:1.1rem}}
+
+/* ---------- Consulta contextual por WhatsApp en el catálogo ---------- */
+.service-bottom{flex-wrap:wrap}
+.service-prices{display:grid;gap:4px}
+.service-contact-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 13px;border:1px solid rgba(120,207,192,.55);border-radius:4px;background:rgba(120,207,192,.10);color:var(--accent);font:600 .72rem var(--font-body);transition:background .2s,border-color .2s,color .2s}
+.service-contact-button:hover{background:var(--accent);border-color:var(--accent);color:var(--bg-deep)}
+.service-contact-button span{font-size:.9rem}
+.service-contact-button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:650px){.service-bottom{align-items:flex-start}.service-contact-button{width:100%}}
