@@ -101,9 +101,9 @@
         return `
           <article class="service-item">
             <div>
-              ${item.offer ? '<span class="offer-badge">PAQUETE DE OFERTA</span>' : ''}
+              ${item.badge ? `<span class="offer-badge">${escapeHtml(item.badge)}</span>` : (item.offer ? '<span class="offer-badge">PAQUETE DE OFERTA</span>' : '')}
               ${item.subcategory ? `<span class="subcat-label">${escapeHtml(item.subcategory)}</span>` : ''}
-              <p>${escapeHtml(item.name)}</p>
+              <p>${escapeHtml(item.name)}</p>${item.description ? `<p class="muted">${escapeHtml(item.description)}</p>` : ''}
             </div>
             <div class="service-bottom">
               <strong class="service-price">${escapeHtml(item.price || 'Consultar')}</strong>
@@ -134,6 +134,11 @@
 
   function setActive(category) {
     active = category;
+    const floating = document.querySelector('.floating-whatsapp');
+    if (floating && whatsappNumber) {
+      const context = category === 'Todas' ? 'el catálogo de servicios' : `la categoría ${category}`;
+      floating.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola, estoy explorando ' + context + ' en la web de alek0byte y me gustaría recibir orientación.')}`;
+    }
 
     filters.querySelectorAll('button[data-category]').forEach(button => {
       const isActive = button.dataset.category === category;

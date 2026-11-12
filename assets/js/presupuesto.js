@@ -94,7 +94,7 @@
         .filter(it=>it&&it.name&&it.category)
         .map(it=>({id:String(it.id||''),category:String(it.category),name:String(it.name),
                    qty:Math.max(1,Math.round(num(it.qty))||1),unit:num(it.unit),
-                   desde:Boolean(it.desde),gratis:Boolean(it.gratis)})):[];
+                   desde:Boolean(it.desde),gratis:Boolean(it.gratis),pending:Boolean(it.pending),description:String(it.description||'')})):[];
       return merged;
     }catch(e){return null;}
   }
@@ -102,7 +102,7 @@
 
   /* ---------- cálculos ---------- */
   const lineTotal=line=>Math.round(line.qty*line.unit*100)/100;
-  const itemsTotal=()=>state.items.reduce((sum,line)=>sum+lineTotal(line),0);
+  const itemsTotal=()=>state.items.reduce((sum,line)=>sum+(line.pending?0:lineTotal(line)),0);
   const grandTotal=()=>Math.max(0,Math.round((itemsTotal()+(state.travel.on?num(state.travel.amount):0)-num(state.discount))*100)/100);
   const deadline=()=>addDays(state.date,state.validity);
   const findLine=id=>state.items.find(line=>line.id===id);
@@ -116,16 +116,25 @@
           id:slug(group.category)+'/'+slug(item.name),
           category:group.category,name:item.name,
           priceText:item.price||'Consultar',parsed:parsePrice(item.price),
-          offer:item.offer||false,subcategory:item.subcategory||''
+          offer:item.offer||false,badge:item.badge||'',description:item.description||'',subcategory:item.subcategory||''
         });
       });
     });
+  }
+
+  function updateFloatingWhatsAppContext(){
+    const floating=document.querySelector('.floating-whatsapp');
+    const phone=ownerWaPhone();
+    if(!floating||!phone)return;
+    const context=activeFilter==='Todas'?'el generador de presupuestos':`la categoría ${activeFilter} del generador de presupuestos`;
+    floating.href=`https://wa.me/${phone}?text=${encodeURIComponent('Hola, estoy preparando un presupuesto en la web de alek0byte y necesito orientación sobre '+context+'.')}`;
   }
 
   function buildFilters(){
     const categories=['Todas',...catalog.services.map(group=>group.category)];
     $('quote-filters').innerHTML=categories.map(category=>
       `<button class="filter-button ${category===activeFilter?'active':''}" type="button" data-category="${escapeHtml(category)}" aria-pressed="${category===activeFilter}">${escapeHtml(category)}</button>`).join('');
+    updateFloatingWhatsAppContext();
   }
 
   function controlsHtml(line){
@@ -146,7 +155,7 @@
     return `<article class="quote-item${selected?' is-selected':''}" data-id="${entry.id}">
       <div class="quote-item-head" role="checkbox" aria-checked="${selected}" tabindex="0" aria-label="${escapeHtml(entry.name)}, ${escapeHtml(entry.priceText)}">
         <span class="quote-check" aria-hidden="true">${selected?'✓':''}</span>
-        <div class="quote-item-info">${entry.offer?'<span class="offer-badge">PAQUETE DE OFERTA</span>':''}${entry.subcategory?`<span class="subcat-label">${escapeHtml(entry.subcategory)}</span>`:''}<p>${escapeHtml(entry.name)}</p></div>
+        <div class="quote-item-info">${entry.badge?`<span class="offer-badge">${escapeHtml(entry.badge)}</span>`:(entry.offer?'<span class="offer-badge">PAQUETE DE OFERTA</span>':'')}${entry.subcategory? `<span class="subcat-label">${escapeHtml(entry.subcategory)}</span>`:''}<p>${escapeHtml(entry.name)}</p>${entry.description?`<p class="muted">${escapeHtml(entry.description)}</p>`:''}</div>
         <span class="quote-item-catalog-price">${escapeHtml(entry.priceText)}</span>
       </div>
       ${selected?controlsHtml(line):''}
@@ -167,6 +176,12 @@
         <div class="category-heading"><span>⌗</span><h2>${escapeHtml(group.category)}</h2></div>
         <div class="service-list quote-list">${entries.map(cardHtml).join('')}</div>
         ${group.note?`<p class="category-note">${escapeHtml(group.note)}</p>`:''}
+        <form class="custom-service-form" data-custom-category="${escapeHtml(group.category)}">
+          <label>Servicio que necesitas<input name="custom-name" type="text" maxlength="100" placeholder="Describe brevemente el servicio" required></label>
+          <label>Detalles adicionales<input name="custom-description" type="text" maxlength="180" placeholder="Equipo, necesidad o alcance (opcional)"></label>
+          <button type="submit">Añadir servicio</button>
+          <p class="custom-service-hint">Los servicios personalizados quedan pendientes de valoración y no se suman al total hasta acordar su precio.</p>
+        </form>
       </section>`;
     }).join('');
     if(!visible)$('quote-catalog').innerHTML='<p class="empty-state">No se encontraron servicios con esa búsqueda. <button type="button" class="link-button" id="quote-clear-filters">Ver todos los servicios</button>';
@@ -190,8 +205,8 @@
           <p class="quote-group-label">${escapeHtml(group.category)}</p>
           ${group.lines.map(line=>`
           <div class="quote-line" data-id="${line.id}">
-            <p class="quote-line-name">${escapeHtml(line.name)}</p>
-            <div class="quote-line-meta"><span>${line.qty} × ${fmt(line.unit)} USD</span><strong>${fmt(lineTotal(line))} USD</strong><button type="button" class="quote-remove" aria-label="Quitar ${escapeHtml(cut(line.name,40))}">✕</button></div>
+            <p class="quote-line-name">${escapeHtml(line.name)}</p>${line.description?`<p class="muted">${escapeHtml(line.description)}</p>`:''}
+            <div class="quote-line-meta">${line.pending?'<span class="pending-badge">Pendiente de valoración</span>':`<span>${line.qty} × ${fmt(line.unit)} USD</span><strong>${fmt(lineTotal(line))} USD</strong>`}<button type="button" class="quote-remove" aria-label="Quitar ${escapeHtml(cut(line.name,40))}">✕</button></div>
           </div>`).join('')}
         </div>`).join('');
     }
@@ -203,6 +218,8 @@
     $('t-disc-row').hidden=disc<=0;
     $('t-disc').textContent='−'+fmt(disc)+' USD';
     $('t-total').textContent=fmt(total)+' USD';
+    const totalLabel=document.querySelector('.quote-total-final dt');
+    if(totalLabel)totalLabel.textContent=state.items.some(line=>line.pending)?'TOTAL PARCIAL':'TOTAL';
     $('q-travel-amount').disabled=!state.travel.on;
     persist();
   }
@@ -234,13 +251,14 @@
     lines.push('');
     if(state.items.length){
       lines.push('*Servicios:*');
-      state.items.forEach(line=>lines.push(`• ${cut(line.name,68)} ×${line.qty} — ${fmt(lineTotal(line))} USD`));
+      state.items.forEach(line=>lines.push(line.pending?`• ${cut(line.name,68)} — PENDIENTE DE VALORACIÓN${line.description?' · '+cut(line.description,80):''}`:`• ${cut(line.name,68)} ×${line.qty} — ${fmt(lineTotal(line))} USD`));
     }
     if(state.travel.on)lines.push(`• Desplazamiento (visita a domicilio) — ${fmt(num(state.travel.amount))} USD`);
     lines.push('');
-    if(state.items.length)lines.push(`Subtotal: ${fmt(itemsTotal())} USD`);
+    if(state.items.some(line=>!line.pending))lines.push(`Subtotal: ${fmt(itemsTotal())} USD`);
     if(num(state.discount)>0)lines.push(`Descuento: −${fmt(num(state.discount))} USD`);
-    lines.push(`*TOTAL: ${fmt(total)} USD*`);
+    lines.push(`*TOTAL PARCIAL: ${fmt(total)} USD*`);
+    if(state.items.some(line=>line.pending))lines.push('Los servicios pendientes se valorarán antes de confirmar el presupuesto.');
     if(state.notes.trim()){lines.push('');lines.push(`*Observaciones:* ${state.notes.trim()}`);}
     lines.push('');
     lines.push('Te adjunto el PDF con el desglose completo.');
@@ -343,7 +361,7 @@
     };
 
     groups.forEach(group=>{
-      const groupTotal=group.lines.reduce((sum,line)=>sum+lineTotal(line),0);
+      const groupTotal=group.lines.reduce((sum,line)=>sum+(line.pending?0:lineTotal(line)),0);
       ensureSpace(7+9);
       setFill(GROUP_BG);doc.rect(left,y,width,7,'F');
       doc.setFont('helvetica','bold');doc.setFontSize(8);setTextColor2(TEAL_DARK);
@@ -353,8 +371,8 @@
       y+=7;
       group.lines.forEach(line=>{
         if(line.desde)hasDesde=true;
-        tableRow(line.name,String(line.qty),fmt(line.unit),fmt(lineTotal(line)),
-          {fill:zebra?ZEBRA:null});
+        tableRow(line.name+(line.description?' — '+line.description:''),line.pending?'—':String(line.qty),line.pending?null:fmt(line.unit),line.pending?'POR VALORAR':fmt(lineTotal(line)),
+          {fill:zebra?ZEBRA:null,italic:line.pending,color:line.pending?MUTED:BODY});
         zebra=!zebra;
       });
     });
@@ -377,13 +395,14 @@
       doc.text(label,160,y,{align:'right'});doc.text(value,right-2,y,{align:'right'});
       y+=5;
     };
-    if(state.items.length)totalRow('Subtotal — mano de obra',fmt(itemsTotal())+' USD');
+    if(state.items.some(line=>!line.pending))totalRow('Subtotal — mano de obra',fmt(itemsTotal())+' USD');
+    if(state.items.some(line=>line.pending)){doc.setFont('helvetica','italic');doc.setFontSize(7);setTextColor2(MUTED);doc.text('Los servicios marcados POR VALORAR requieren cotización antes de confirmar el total.',left+2,y);y+=5;}
     if(state.travel.on)totalRow('Desplazamiento',fmt(num(state.travel.amount))+' USD');
     if(num(state.discount)>0)totalRow('Descuento','−'+fmt(num(state.discount))+' USD');
     y+=1;ensureSpace(15);
     setFill(BAND);doc.rect(95,y,100,12,'F');
     doc.setFont('helvetica','bold');doc.setFontSize(11);setTextColor2(TEXT);
-    doc.text('TOTAL',100,y+8);
+    doc.text(state.items.some(line=>line.pending)?'TOTAL PARCIAL':'TOTAL',100,y+8);
     doc.setFontSize(13);setTextColor2(TEAL);
     doc.text(fmt(grandTotal())+' USD',190,y+8.2,{align:'right'});
     y+=12;
@@ -499,6 +518,7 @@
       const button=event.target.closest('button[data-category]');
       if(!button)return;
       interacted=true;activeFilter=button.dataset.category;
+      updateFloatingWhatsAppContext();
       [...$('quote-filters').children].forEach(child=>{
         const isActive=child.dataset.category===activeFilter;
         child.classList.toggle('active',isActive);
@@ -509,9 +529,22 @@
 
     $('quote-search').addEventListener('input',()=>{interacted=true;renderCatalog();});
 
+    $('quote-catalog').addEventListener('submit',event=>{
+      const form=event.target.closest('form[data-custom-category]');
+      if(!form)return;
+      event.preventDefault();
+      const name=form.elements['custom-name'].value.trim();
+      const description=form.elements['custom-description'].value.trim();
+      if(!name)return;
+      const id='custom/'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);
+      state.items.push({id,category:form.dataset.customCategory,name,description,qty:1,unit:0,desde:false,gratis:false,pending:true});
+      form.reset();renderSummary();status('Servicio personalizado añadido; queda pendiente de valoración.');
+    });
+
     $('quote-catalog').addEventListener('click',event=>{
       if(event.target.closest('#quote-clear-filters')){
         interacted=true;$('quote-search').value='';activeFilter='Todas';
+        updateFloatingWhatsAppContext();
         [...$('quote-filters').children].forEach(child=>{
           const isActive=child.dataset.category==='Todas';
           child.classList.toggle('active',isActive);
