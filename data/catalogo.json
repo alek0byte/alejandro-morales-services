@@ -91,14 +91,16 @@
       "category": "Sistemas operativos y software",
       "items": [
         {
-          "name": "Instalación de Windows y controladores (drivers)",
+          "name": "Windows Básico",
           "price": "5 USD",
-          "offer": true
+          "description": "Instalación de Windows y controladores (drivers).",
+          "badge": "WINDOWS BÁSICO"
         },
         {
-          "name": "Instalación y configuración personalizada de Windows, drivers y programas solicitados",
+          "name": "Windows alek0byte",
           "price": "7 USD",
-          "offer": true
+          "description": "Instalación y configuración personalizada de Windows, drivers y programas solicitados.",
+          "badge": "WINDOWS alek0byte"
         },
         {
           "name": "Instalación de Linux (Arch Linux/Cachy OS + Hyprland + algún dotfiles, ZorinOS, Linux Mint y otras distribuciones según el equipo y las necesidades)",
