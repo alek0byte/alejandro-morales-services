@@ -127,6 +127,128 @@ textarea.quote-input{resize:vertical;min-height:84px}
 @media(max-width:850px){.quote-columns{grid-template-columns:1fr}.quote-summary{position:static}}
 @media(max-width:650px){.field-grid,.quote-extras-grid{grid-template-columns:1fr}.quote-item{padding:12px 13px}.quote-item-catalog-price{display:none}.quote-actions{grid-template-columns:1fr}.quote-total-final dd{font-size:1.1rem}}
 
+/* ============================================================
+   Gema de jade — carrusel tipográfico del hero (index.html)
+   Efecto 100 % CSS sobre texto real: seleccionable, accesible
+   y responsive. El slot reserva el ancho de la variante más
+   larga para que «manos.» y el resto del eslogan no reflowen.
+   ============================================================ */
+.hero h1 .gem{
+  --gem-aqua:#78CFC0;
+  --gem-mint:#dcfff6;
+  --gem-emerald:#1f9a6a;
+  --gem-forest:#0b4631;
+  --gem-olive:#7a8232;
+  --gem-ink:#041d14;
+
+  position:relative;
+  display:inline-block;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  -webkit-background-clip:text;
+  background-clip:text;
+  background-image:
+    /* grano cristalino (ruido fractal, muy tenue) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    /* microestriado de cristal: vetas diagonales finas */
+    repeating-linear-gradient(104deg,rgba(255,255,255,.09) 0 1px,rgba(255,255,255,0) 1px 7px,rgba(2,26,18,.1) 7px 8px,rgba(2,26,18,0) 8px 14px),
+    /* plano de facetas principal: aristas rectas de luz y sombra */
+    conic-gradient(from 208deg at 30% 24%,transparent 0 8%,rgba(255,255,255,.3) 8% 9.5%,transparent 9.5% 23%,rgba(3,38,25,.26) 23% 25%,transparent 25% 42%,rgba(180,255,236,.22) 42% 43.5%,transparent 43.5% 61%,rgba(3,30,21,.24) 61% 63%,transparent 63% 80%,rgba(255,255,255,.18) 80% 81.5%,transparent 81.5%),
+    /* segundo plano facetado, girado: rompe la simetría del primero */
+    conic-gradient(from 22deg at 74% 68%,transparent 0 13%,rgba(122,130,50,.38) 13% 15%,transparent 15% 33%,rgba(8,58,40,.28) 33% 35%,transparent 35% 54%,rgba(200,255,242,.2) 54% 56%,transparent 56% 75%,rgba(122,130,50,.26) 75% 77%,transparent 77%),
+    /* destello especular puntual */
+    radial-gradient(20% 26% at 46% 4%,rgba(255,255,255,.95),transparent 70%),
+    /* segundo destello, más pequeño y desplazado */
+    radial-gradient(11% 15% at 63% 30%,rgba(230,255,250,.72),transparent 72%),
+    /* luz superior aguamarina */
+    radial-gradient(70% 46% at 15% 0%,rgba(244,255,252,.9),transparent 58%),
+    /* núcleo de refracción */
+    radial-gradient(46% 52% at 38% 28%,rgba(120,207,192,.58),transparent 62%),
+    /* reflejo secundario esmeralda */
+    radial-gradient(38% 46% at 68% 40%,rgba(56,224,164,.52),transparent 64%),
+    /* faceta oliva en el lateral profundo */
+    radial-gradient(26% 30% at 90% 72%,rgba(122,130,50,.46),transparent 66%),
+    /* luz difusa del cuerpo medio-bajo (bajo la sombra inferior) */
+    radial-gradient(62% 50% at 44% 60%,rgba(86,216,186,.24),transparent 68%),
+    /* profundidad y sombra interna inferior */
+    radial-gradient(100% 66% at 34% 108%,rgba(2,20,14,.52),transparent 62%),
+    /* degradado principal, vertical: blanco arriba → aguamarina → esmeralda → bosque → oliva abajo */
+    linear-gradient(180deg,#f2fffb 0%,#cdf9ee 8%,var(--gem-aqua) 18%,#5fd8b0 30%,#3cc48d 42%,#26a874 54%,#17855b 66%,#0e5f42 78%,var(--gem-forest) 88%,#4a5a22 96%,#6b7529 100%);
+  background-size:260px 260px,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%;
+  background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  background-blend-mode:soft-light,overlay,overlay,soft-light,screen,screen,screen,screen,normal,normal,normal,normal,normal;
+  /* volumen: bisel claro arriba-izquierda + extrusión oscura abajo-derecha.
+     Se usa drop-shadow (no text-shadow): con background-clip:text el
+     text-shadow se pinta sobre la cara y ensucia el degradado. Los pasos
+     encadenados construyen los laterales del bloque de gema. */
+  filter:
+    drop-shadow(.012em .014em 0 #1b7a54)
+    drop-shadow(.014em .016em 0 #136647)
+    drop-shadow(.016em .018em 0 #0e5238)
+    drop-shadow(.018em .02em 0 #0a402d)
+    drop-shadow(.02em .022em 0 #072d20)
+    drop-shadow(-.009em -.007em 0 rgba(238,255,250,.5))
+    drop-shadow(0 0 .32em rgba(120,207,192,.3))
+    drop-shadow(.008em .07em .12em rgba(0,0,0,.52));
+}
+/* Filos facetados: luz en el borde superior/izquierdo y sombra en el inferior/derecho.
+   El borde derecho se extiende -.08em porque el letter-spacing negativo del h1
+   deja la tinta de la última «s» fuera de la caja del elemento: sin este margen,
+   la máscara recortaba su filo y parte del relieve. */
+.hero h1 .gem::before,.hero h1 .gem::after{
+  content:attr(data-text);
+  position:absolute;
+  top:0;right:-.08em;bottom:0;left:0;
+  z-index:2;
+  pointer-events:none;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:1.05px;
+}
+.hero h1 .gem::before{
+  -webkit-text-stroke-color:rgba(240,255,251,.72);
+  -webkit-mask-image:linear-gradient(146deg,#000 0 16%,rgba(0,0,0,.9) 28%,rgba(0,0,0,.35) 42%,transparent 56%);
+  mask-image:linear-gradient(146deg,#000 0 16%,rgba(0,0,0,.9) 28%,rgba(0,0,0,.35) 42%,transparent 56%);
+}
+.hero h1 .gem::after{
+  -webkit-text-stroke-color:rgba(1,18,12,.68);
+  -webkit-mask-image:linear-gradient(332deg,#000 0 18%,rgba(0,0,0,.85) 30%,rgba(0,0,0,.32) 44%,transparent 58%);
+  mask-image:linear-gradient(332deg,#000 0 18%,rgba(0,0,0,.85) 30%,rgba(0,0,0,.32) 44%,transparent 58%);
+}
+.hero h1 .gem::selection{background:rgba(120,207,192,.38);color:var(--gem-ink);-webkit-text-fill-color:var(--gem-ink)}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 .gem{color:var(--accent);-webkit-text-fill-color:currentColor;text-shadow:none;filter:none}
+  .hero h1 .gem::before,.hero h1 .gem::after{display:none}
+}
+@media(max-width:650px){
+  .hero h1 .gem{filter:drop-shadow(.011em .013em 0 #136647) drop-shadow(.013em .015em 0 #0e5238) drop-shadow(.015em .017em 0 #0a402d) drop-shadow(.017em .019em 0 #072d20) drop-shadow(-.008em -.006em 0 rgba(238,255,250,.44)) drop-shadow(0 0 .3em rgba(120,207,192,.26)) drop-shadow(.007em .06em .1em rgba(0,0,0,.46))}
+  .hero h1 .gem::before{-webkit-text-stroke-width:.85px}
+  .hero h1 .gem::after{-webkit-text-stroke-width:.85px}
+}
+
+/* --- Carrusel vertical de «buenas / excelentes / las mejores» --- */
+.gem-tail{white-space:normal}
+/* El slot apila las tres variantes en la misma celda: su ancho es el de la
+   más larga y permanece fijo, así el resto del eslogan nunca cambia de línea. */
+.gem-slot{display:inline-grid;vertical-align:baseline;justify-items:start;align-items:baseline}
+.gem-slot>.gem{grid-area:1/1;white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(.55em);
+  transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .6s ease,filter .35s ease,visibility 0s linear .6s}
+.gem-slot>.gem.is-active{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.gem-slot>.gem.is-leaving{opacity:0;visibility:visible;transform:translateY(-.55em)}
+/* «manos.» no se anima: solo se recoloca suavemente para cerrar el hueco
+   que deja la variante corta dentro del slot (misma línea, sin reflow). */
+.gem-manos{display:inline-block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+/* En la franja de dos columnas donde el grupo cae en la misma línea, se
+   impide el salto de «manos.» a otra línea (el excedente va al gap del hero). */
+@media(min-width:851px) and (max-width:1209px){.gem-tail{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){
+  .gem-slot>.gem,.gem-manos{transition:none}
+}
+/* El carrusel alterna opacidad y translateY (600 ms) y deja intactas las
+   capas del jade. Si en el futuro se quiere animar el propio material, se
+   puede mover `background-position` (añadiendo una capa de brillo), o la
+   `mask-position` de ::before/::after, sin tocar la estructura HTML. */
+
 /* ---------- Consulta contextual por WhatsApp en el catálogo ---------- */
 .service-bottom{flex-wrap:wrap}
 .service-prices{display:grid;gap:4px}
